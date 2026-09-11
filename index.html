@@ -7,18 +7,35 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
         body { background: #0b0b0b; color: #ffffff; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 40px 20px; }
-        .container { max-width: 580px; width: 100%; text-align: center; }
+        
+        /* Container auf 400px verkleinert für schmalere Buttons */
+        .container { max-width: 400px; width: 100%; text-align: center; }
+        
         .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #7289da; margin-bottom: 15px; object-fit: cover; }
         h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px; }
         p { font-size: 0.95rem; color: #a0a0a0; margin-bottom: 30px; }
         
-        /* Die Link-Buttons */
-        .link-btn { display: flex; align-items: center; justify-content: center; background: #1a1a1a; color: #ffffff; text-decoration: none; padding: 16px; margin-bottom: 16px; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.2s, background 0.2s; border: 1px solid #2a2a2a; }
+        /* Die Link-Buttons (position: relative für die Icon-Platzierung) */
+        .link-btn { position: relative; display: flex; align-items: center; justify-content: center; background: #1a1a1a; color: #ffffff; text-decoration: none; padding: 16px; margin-bottom: 16px; border-radius: 12px; font-weight: 600; font-size: 1rem; transition: transform 0.2s, background 0.2s; border: 1px solid #2a2a2a; }
         .link-btn:hover { transform: translateY(-2px); background: #252525; }
+        
+        /* Die Icons sitzen jetzt bombenfest ganz vorne links im Button */
+        .link-btn svg {
+            position: absolute;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+            flex-shrink: 0;
+        }
         
         /* Discord Spezial-Design */
         .discord-btn { background: #5865F2; border: none; }
         .discord-btn:hover { background: #4752C4; }
+        
+        /* Hover-Farben für YouTube und SoundCloud */
+        .youtube-btn:hover { background: #FF0000; border-color: #FF0000; }
+        .soundcloud-btn:hover { background: #FF5500; border-color: #FF5500; }
         
         .footer { margin-top: auto; font-size: 0.8rem; color: #555555; letter-spacing: 1px; text-transform: uppercase; padding-top: 40px; }
     </style>
@@ -26,18 +43,32 @@
 <body>
 
     <div class="container">
-        <!-- Hier Künstlerbild verlinken oder weglassen -->
+        <!-- Dein Profilbild -->
         <img class="profile-img" src="profilbild.png" alt="Artist Logo">
         
         <h1>LUMA D. HAZE</h1>
-        <p>Neuer Track 'SOUNDCLOUD' jetzt Streamen!</p>
+        <p>"SOUNDCLOUD" Out Now!</p>
 
         <!-- DISCORD LINK -->
-        <a href="https://discord.gg/SWc5RCsAjQ" target="_blank" class="link-btn discord-btn">Discord</a>
+        <a href="https://discord.gg" target="_blank" class="link-btn discord-btn">
+            <!-- Discord Logo SVG -->
+            <svg viewBox="0 0 127.14 96.36" xmlns="http://w3.org"><path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.77-11,68.43,68.43,0,0,1-10.66-5.12c.91-.66,1.8-1.34,2.65-2a75.58,75.58,0,0,0,72.68,0c.85.71,1.74,1.39,2.65,2a68.68,68.68,0,0,1-10.66,5.12,74.37,74.37,0,0,0,6.77,11,105.73,105.73,0,0,0,31.62-18.83C129.4,49.81,123.63,26.91,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.9,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S88.41,40.36,84.69,40.36,96.14,46,96,53,91,65.69,84.69,65.69Z"/></svg>
+            Discord
+        </a>
 
-        <!-- WEITERE LINKS -->
-        <a href="https://www.youtube.com/@lumadhaze" target="_blank" class="link-btn">YouTube</a>
-        <a href="https://soundcloud.com/lumadhaze" target="_blank" class="link-btn">SoundCloud</a>
+        <!-- YOUTUBE LINK -->
+        <a href="https://youtube.com" target="_blank" class="link-btn youtube-btn">
+            <!-- YouTube Logo SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://w3.org"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube
+        </a>
+
+        <!-- SOUNDCLOUD LINK -->
+        <a href="https://soundcloud.com" target="_blank" class="link-btn soundcloud-btn">
+            <!-- SoundCloud Logo SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://w3.org"><path d="M11.56 16.75c0 .24-.19.43-.43.43h-.02c-.24 0-.43-.19-.43-.43v-8.2c0-.24.19-.43.43-.43h.02c.24 0 .43.19.43.43v8.2zm-2.03-.68c0 .24-.19.43-.43.43h-.02c-.24 0-.43-.19-.43-.43V9.82c0-.24.19-.43.43-.43h.02c.24 0 .43.19.43.43v6.25zm-2.03-1c0 .24-.19.43-.43.43h-.02c-.24 0-.43-.19-.43-.43v-4.25c0-.24.19-.43.43-.43h.02c.24 0 .43.19.43.43v4.25zm-2.04-.63c0 .24-.19.43-.43.43H4.8c-.24 0-.43-.19-.43-.43v-2.34c0-.24.19-.43.43-.43h.02c.24 0 .43.19.43.43v2.34zm-2.03-.62c0 .24-.19.43-.43.43h-.02c-.24 0-.43-.19-.43-.43v-1.1c0-.24.19-.43.43-.43h.02c.24 0 .43.19.43.43v1.1zm10.16 3.4c-.12 0-.24-.05-.32-.14-.09-.09-.14-.21-.14-.33v-10c0-.12.05-.24.14-.33.08-.09.2-.14.32-.14h.02c.12 0 .24.05.32.14.09.09.14.21.14.33v10c0,.12-.05.24-.14.33-.08.09-.2.14-.32.14h-.02zm1.9.1c0 .24-.19.43-.43.43h-.02c-.24 0-.43-.19-.43-.43V6.23c0-.24.19-.43.43-.43h.02c.24 0 .43.19.43.43v10.94zm2.14.36c-.4 0-.79-.06-1.16-.18-.11-.04-.19-.13-.22-.24-.03-.11-.01-.23.06-.32l.01-.01c.42-.55.66-1.22.66-1.92 0-1.77-1.42-3.22-3.18-3.24H18.9V17c0 .12-.05.24-.14.33-.09.09-.21.14-.33.14h-1c-.12 0-.24-.05-.33-.14-.09-.09-.14-.21-.14-.33v-9.5c0-.12.05-.24.14-.33.09-.09.21-.14.33-.14h.02c.12 0 .24.05.33.14.09.09.14.21.14.33v.24c.73-.55 1.63-.87 2.61-.87 2.37 0 4.3 1.9 4.35,4.26.85-.43 1.81-.67 2.83-.67 3.4 0 6.16 2.73 6.2 6.12.02.17.03.35.03.52 0 3.51-2.85 6.36-6.36 6.36h-4.36z"/></svg>
+            SoundCloud
+        </a>
        
     </div>
 
